@@ -1,0 +1,16 @@
+//https://fonts.google.com/specimen/Arvo?preview.text=Los%20Motilones&preview.text_type=custom&category=Serif
+//https://fonts.google.com/specimen/Noto+Sans+JP?preview.text=Los%20Motilones&preview.text_type=custom&category=Sans+Serif
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Noto+Sans+JP&display=swap');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Arvo', serif;
+    }
+}

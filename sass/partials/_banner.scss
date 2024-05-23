@@ -1,0 +1,40 @@
+.banner {
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(../img/banner/banner.jpg);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    color: white;
+    padding: 20px 10%;
+    img {
+        width: 30%;
+        max-width: 200px;
+        margin: 10px 0px;
+        /*background: rgba(255, 255, 255, 0.08);
+        border-radius: 5%;*/
+    }
+    h1, p {
+        text-align: center;
+        width: 100%;
+    }
+    p {
+        padding-top: 15px;
+        color: #e0e0e0;
+    }
+    a {
+        display: block;
+        padding: 10px;
+        font-size: 50px;
+        color: white;
+        transition: 0.5s all;
+        &:hover {
+            color: $color5;
+            transform: scale(1.1);
+        }
+    }
+}

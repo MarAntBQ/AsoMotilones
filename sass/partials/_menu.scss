@@ -1,0 +1,170 @@
+.menu-bar {
+    display: flex;
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    justify-content: space-between;
+    //background: #306400;
+    background: white;
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    align-items: center;
+    padding: 10px 10px;
+    //border-bottom: 1px solid rgba(62, 62, 62, 0.13);
+    box-shadow: 0 3px 7px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+    //border-radius: 0px 0px 7.5px 7.5px;
+
+    img {
+        display: block;
+        width: 100px;
+    }
+
+    #menu-btn {
+        padding: 10px;
+        color: $color1;
+        font-size: 25px;
+        cursor: pointer;
+        transition: 1s;
+
+        &:hover {
+            color: $color3;
+            transform: rotate(360deg);
+        }
+    }
+
+    @media (max-width: $break-medium) {
+        nav {
+            display: none;
+        }
+    }
+
+    @media (min-width: $break-medium) {
+        #menu-btn {
+            display: none;
+        }
+
+        nav {
+            #close-btn {
+                display: none;
+            }
+            ul {
+                display: flex;
+                list-style: none;
+
+                li {
+                    a {
+                        display: block;
+                        padding: 10px 20px;
+                        color: $color1;
+                        text-decoration: none;
+                        transition: 0.5s all;
+                        font-weight: bold;
+                        background: white;
+                        border-radius: 10px;
+
+                        &:hover {
+                            //color: $color2;
+                            background: rgba(0, 0, 0, 0.05);
+                        }
+                    }
+                    .link-active {
+                        background: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+        }
+    }
+    
+    //When the user activate the menu 
+    @mixin Mobile-Menu-Setup {
+            display: flex;
+            position: fixed;
+            flex-wrap: wrap;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 100%;
+            max-width: 300px;
+            background: white;
+            box-shadow: 0 3px 7px 0 rgb(0 0 0 / 12%), inset 0 -1px 0 0 #dadce0;
+            overflow-y: auto;
+            #close-btn {
+                display: block;
+                font-size: 30px;
+                margin-left: auto;
+                margin-right: 10px;
+                padding: 10px;
+                color: $color1;
+                transition: 0.5s all;
+                cursor: pointer;
+                &:hover {
+                    color: $color3;
+                    transform: translateX(-15px);
+                }
+            }
+            ul {
+                width: 100%;
+                height: calc(100vh - 50px);
+                display: flex;
+                align-content: flex-start;
+                list-style: none;
+                flex-wrap: wrap;
+
+                li {
+                    width: 100%;
+
+                    a {
+                        color: $color1;
+                        display: block;
+                        text-align: center;
+                        text-decoration: none;
+                        padding: 10px 20px;
+                        font-weight: bold;
+                        background: white;
+                        transition: 0.5s all;
+                        &:hover {
+                            //color: $color2;
+                            background: rgba(0, 0, 0, 0.05);
+                        }
+                    }
+                    .link-active {
+                        background: rgba(0, 0, 0, 0.05);
+                    }
+                }
+            }
+    }
+    
+    @media (max-width: $break-medium) {
+     .active-menu {
+            @include Mobile-Menu-Setup;
+            animation: 0.5s appearmenu ease;
+
+            @keyframes appearmenu {
+                from {
+                    transform: translateX(-100%);
+                }
+
+                to {
+                    transform: translateX(0px);
+                }
+            }
+        }
+
+        .desactivate-menu {
+            @include Mobile-Menu-Setup;
+            animation: 0.5s dappearmenu ease;
+            transform: translateX(-100%);
+
+            @keyframes dappearmenu {
+                from {
+                    transform: translateX(0px);
+                }
+
+                to {
+                    transform: translateX(-100%);
+                }
+            }
+        }   
+    }
+}
